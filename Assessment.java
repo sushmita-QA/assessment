@@ -1,3 +1,4 @@
+//UI Automation
 package com.Assessment;
 
 
@@ -56,3 +57,30 @@ public class Amazon_Home {
         
         
         }}
+
+
+
+
+
+
+
+//API Automation Excercise
+
+pm.test("Status test", function () {
+    pm.response.to.have.status(200);
+    var jsonData = pm.response.json();
+
+  pm.test("Response is ok", () => {
+    var IdIndex = jsonData.map(
+            function(filter) {
+                return filter.id; 
+            }
+        ).indexOf(2); 
+
+    var id = jsonData[IdIndex];
+
+  pm.expect(id.completed).to.eq(false);
+
+})
+});
+
