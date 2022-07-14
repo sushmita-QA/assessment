@@ -25,14 +25,16 @@ public class Amazon_Home {
      driver.get("https://automationintesting.online/#/admin");
      driver.manage().window().maximize();
 		String title = driver.getTitle();
-		System.out.println(title);
+		Assert.assertEquals(Actualtext, "Restful-booker-platform demo");
 		
 		
 	 driver.findElement(By.id("username")).sendKeys("admin");
      driver.findElement(By.id("password")).sendKeys("password");
      driver.findElement(By.id("doLogin")).click();
+		
      
        Thread.sleep(2000);
+		driver.findelement(By.id("frontPageLink")).isDisplayed();
        for(int i =0; i<=1;i++) {
        
        driver.findElement(By.id("roomName")).sendKeys("102");
